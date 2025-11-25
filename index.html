@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nexus Music | Revenue Management System</title>
+    <title>Nexus Music —— 音乐收益分成管理系统</title>
+    <!-- Keep Tailwind CDN for simplest styling setup without postcss config -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
     <script>
@@ -31,12 +32,17 @@
             animation: {
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
               'float': 'float 6s ease-in-out infinite',
+              'float-in': 'fadeInUp 0.5s ease-out forwards',
               'glow': 'glow 2s ease-in-out infinite alternate',
             },
             keyframes: {
               float: {
                 '0%, 100%': { transform: 'translateY(0)' },
                 '50%': { transform: 'translateY(-10px)' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
               },
               glow: {
                 'from': { boxShadow: '0 0 5px #7c3aed, 0 0 10px #7c3aed' },
@@ -54,7 +60,6 @@
         overflow-x: hidden;
       }
       
-      /* Glassmorphism utility */
       .glass-panel {
         background: rgba(15, 15, 25, 0.7);
         backdrop-filter: blur(16px);
@@ -67,28 +72,13 @@
         background: rgba(0, 0, 0, 0.4);
         border: 1px solid rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(4px);
+        color: white;
       }
       .glass-input:focus {
         border-color: #7c3aed;
         box-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
       }
 
-      /* Neon Text utilities */
-      .neon-text-purple {
-        text-shadow: 0 0 5px rgba(124, 58, 237, 0.8), 0 0 10px rgba(124, 58, 237, 0.5);
-      }
-      .neon-text-blue {
-        text-shadow: 0 0 5px rgba(0, 242, 255, 0.8), 0 0 10px rgba(0, 242, 255, 0.5);
-      }
-
-      /* Gradient Text */
-      .text-gradient {
-        background: linear-gradient(to right, #00f2ff, #7c3aed);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      /* Scrollbar */
       ::-webkit-scrollbar {
         width: 6px;
         height: 6px;
@@ -107,18 +97,19 @@
   <script type="importmap">
 {
   "imports": {
-    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.0/client",
-    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
     "react": "https://aistudiocdn.com/react@^19.2.0",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4"
   }
 }
 </script>
 </head>
   <body>
     <div id="root"></div>
+    <!-- Vite Entry Point -->
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>
