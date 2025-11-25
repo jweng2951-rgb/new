@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nexus Music —— 音乐收益分成管理系统</title>
-    <!-- Keep Tailwind CDN for simplest styling setup without postcss config -->
+    <!-- Tailwind CDN is kept for styling to avoid needing complex PostCSS setup -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
     <script>
@@ -101,15 +101,15 @@
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
     "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
-    "vite": "https://aistudiocdn.com/vite@^7.2.4"
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
   }
 }
 </script>
 </head>
   <body>
     <div id="root"></div>
-    <!-- Vite Entry Point -->
-    <script type="module" src="/index.tsx"></script>
+    <!-- FIXED: Uses relative path ./index.tsx which allows Vite to find the file correctly during build -->
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
